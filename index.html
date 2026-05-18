@@ -1,25 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Under Reconstruction</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #fff;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    p {
-      font-size: 16px;
-      color: #000;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newton's Lost Apple</title>
 </head>
 <body>
-  <p>Site is currently under reconstruction.</p>
+<style>
+table { border-collapse: collapse; }
+th, td { border: 1px solid #000; padding: 4px 8px; }
+th { background-color: #f5f5f5; text-align: start; }
+body { margin: 0;  font-family: Arial, sans-serif;}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0.5rem;
+  border-bottom: 1px solid #000;
+}
+nav img {
+  height: 36px;
+  width: auto;
+}
+.content {
+  width: fit-content;
+  margin: 24px auto;
+}
+</style>
+
+<nav>
+  <img src="brand/newtons_lost_apple.png"/>
+  <a href="https://github.com/stepan-vana/spadlejablko" target="_blank">
+    <img src="brand/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
+  </a>
+</nav>
+
+<div class="content">
+  <h2 style="margin-bottom: 8px;">Přehled materiálů</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Název</th>
+        <th>Vytvořeno</th>
+        <th>Naposledy upraveno</th>
+        <th>Verze</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a>Kybernetická bezpečenost</a></td>
+        <td>18. 5. 2026</td>
+        <td>18. 5. 2026</td>
+        <td>v1.0.0</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top: 1%;">
+    <p style="margin: 0;"><a>Podmínky použití</a> | © 2026 spadlejablko.com. Všechna práva vyhrazena.</p>
+  </div>
+</div>
+
 </body>
 </html>
