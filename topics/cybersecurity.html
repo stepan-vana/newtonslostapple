@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLA | Linux</title>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 36px;
+    display: block;
+}
+
+.sidebar {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    width: 15rem;
+    padding: 25px;
+    background: #f4f4f4;
+    border: 1px solid #bbb;
+    border-top: none;
+    overflow: auto;
+}
+
+.sidebar-left {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 250px;
+    padding: 20px;
+    background: #f4f4f4;
+    border: 1px solid #bbb;
+}
+
+.content {
+    margin-top: 70px;
+    margin-left: 15rem;
+    margin-right: 270px;
+    padding: 20px 30px;
+}
+
+.toc a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.toc .h1 { font-weight: bold; }
+.toc .h2 { margin-left: 10px; }
+.toc .h3 { margin-left: 20px; }
+
+.content table,
+.content th,
+.content td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+.content th,
+.content td {
+    padding: 8px;
+}
+
+.content pre {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    display: inline-block;
+    max-width: 100%;
+    width: fit-content;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.copy-btn {
+    font-size: 12px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+
+.dark .copy-btn {
+    background-color: #000;
+    color: #fff;
+}
+
+.code-body {
+    padding: 10px;
+    background-color: #f8f8f8;
+    overflow-x: auto;
+    white-space: pre;
+    font-family: monospace;
+    display: inline-block;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 0;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0s ease;
+    display: inline-block;
+    color: black;
+}
+
+.dropdown.open .icon {
+    transform: rotate(90deg);
+}
+
+.dropdown-menu {
+    display: none;
+    margin-left: 18px;
+    flex-direction: column;
+}
+
+.dropdown.open .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dark {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.dark .sidebar,
+.dark .sidebar-left,
+.dark .content {
+    background: #000 !important;
+    color: #fff !important;
+}
+.navbar a span {
+    color: black !important;
+}
+.dark a {
+    color: #fff !important;
+}
+
+.dark .code-body {
+    background-color: #000;
+}
+
+.dark .icon {
+    color: #fff;
+}
+.navbar button {
+    border: 1px solid #ccc;
+    background-color: transparent;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">
+        <a href="https://example.com">
+            <img src="newtons_lost_apple.png" alt="logo">
+        </a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="https://github.com/stepan-vana/spadlejablko" target="_blank"
+           style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+            <img src="github.svg" alt="GitHub" style="height: 28px; width: auto;" />
+            <span>GitHub</span>
+        </a>
+
+        <button id="themeToggle" style="padding: 6px 10px; cursor: pointer;">
+            Dark mode
+        </button>
+    </div>
+</div>
+
+<div class="sidebar">
+    <p><b>LINUX</b></p>
+    <br>
+
+    <ul>
+        <li class="dropdown">
+            <div class="dropdown-toggle" data-md="resources/intro_cs.md">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M8 5l8 7-8 7"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"/>
+                </svg>
+
+                Introduction
+            </div>
+
+            <div class="dropdown-menu">
+                <a href="#" data-md="resources/working_with_files.md">Working with Files</a>
+            </div> 
+        </li>
+    </ul>
+</div>
+
+<div class="content" id="content"></div>
+
+<div class="sidebar-left">
+    <p><b>DOCUMENT SECTIONS</b></p>
+    <br>
+    <div class="toc" id="toc"></div>
+</div>
+
+<script>
+function slugify(text) {
+    return text.toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-');
+}
+
+function buildTOC(html) {
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
+    const headers = temp.querySelectorAll("h1, h2, h3");
+
+    const toc = document.getElementById("toc");
+    toc.innerHTML = "";
+
+    headers.forEach(h => {
+        const id = slugify(h.innerText);
+        h.id = id;
+
+        const a = document.createElement("a");
+        a.href = "#" + id;
+        a.innerText = h.innerText;
+
+        if (h.tagName === "H1") a.classList.add("h1");
+        if (h.tagName === "H2") a.classList.add("h2");
+        if (h.tagName === "H3") a.classList.add("h3");
+
+        toc.appendChild(a);
+    });
+
+    return temp.innerHTML;
+}
+
+function enhanceCodeBlocks() {
+    document.querySelectorAll(".content pre").forEach(pre => {
+        if (pre.dataset.done) return;
+        pre.dataset.done = "1";
+
+        const code = pre.querySelector("code");
+        if (!code) return;
+
+        const lang = (code.className || "").replace("language-", "") || "code";
+
+        const header = document.createElement("div");
+        header.className = "code-header";
+
+        const left = document.createElement("div");
+        left.innerText = lang;
+
+        const btn = document.createElement("button");
+        btn.className = "copy-btn";
+        btn.innerText = "copy";
+
+        btn.addEventListener("click", () => {
+            navigator.clipboard.writeText(code.innerText);
+            btn.innerText = "copied";
+            setTimeout(() => btn.innerText = "copy", 1000);
+        });
+
+        header.appendChild(left);
+        header.appendChild(btn);
+
+        const body = document.createElement("div");
+        body.className = "code-body";
+        body.innerText = code.innerText;
+
+        pre.innerHTML = "";
+        pre.appendChild(header);
+        pre.appendChild(body);
+    });
+}
+
+document.querySelectorAll(".dropdown-toggle").forEach(el => {
+    el.addEventListener("click", () => {
+        el.parentElement.classList.toggle("open");
+    });
+});
+
+async function loadMD(file) {
+    const res = await fetch(file);
+    const text = await res.text();
+
+    let html = marked.parse(text);
+    html = buildTOC(html);
+
+    document.getElementById("content").innerHTML = html;
+
+    enhanceCodeBlocks();
+}
+
+document.querySelectorAll("[data-md]").forEach(el => {
+    el.addEventListener("click", e => {
+        e.preventDefault();
+        loadMD(el.dataset.md);
+    });
+});
+
+const btn = document.getElementById("themeToggle");
+
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        btn.innerText = "Light mode";
+    } else {
+        btn.innerText = "Dark mode";
+    }
+});
+
+loadMD("resources/uvod_kyberbezp.md");
+</script>
+
+</body>
+</html>
