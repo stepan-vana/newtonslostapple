@@ -1,5 +1,4 @@
 # Newton's Lost Apple
----
 
 `newtonslostapple.com` je stránka, kde publikujeme věci jednoduše, tak aby byly snadné na pochopení a dávaly smysl každému.
 
