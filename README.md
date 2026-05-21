@@ -1,5 +1,5 @@
 # Newton's Lost Apple
 
-`newtonslostapple.com` je stránka, kde publikujeme věci jednoduše, tak aby byly snadné na pochopení a dávaly smysl každému.
+`newtonslostapple.com` is a website where we publish things simply, so they are easy to understand and make sense to everyone.
 
-Náš web primárně slouží k podpoře vzdělání, které je velmi důležité pro život v době dezinformací a nejistoty. Naším cílem je **podpořit celosvětové vzdělání**. 
+Our website primarily serves to support education, which is very important for life in an era of misinformation and uncertainty. Our goal is to **support global education**.
