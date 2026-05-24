@@ -41,6 +41,7 @@ body {
 .sidebar {
     position: fixed;
     top: 60px;
+    left: 0;
     bottom: 0;
     width: 15rem;
     padding: 25px;
@@ -205,6 +206,55 @@ body {
     background-color: transparent;
 }
 
+/* ── Hamburger ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px;
+}
+.hamburger span {
+    display: block;
+    height: 2px;
+    background: black;
+    border-radius: 2px;
+}
+.dark .hamburger span { background: white; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .sidebar-left { display: none; }
+    .content { margin-right: 0; }
+}
+
+@media (max-width: 768px) {
+    .github-link { display: none; }
+    .hamburger { display: flex; }
+
+    .sidebar {
+        left: auto;
+        right: 0;
+        width: min(15rem, 85vw);
+        border-left: 1px solid #bbb;
+        border-right: none;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+    .sidebar.open { transform: translateX(0); }
+
+    .content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 16px;
+    }
+}
 </style>
 </head>
 
@@ -218,7 +268,7 @@ body {
     </div>
 
     <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="https://github.com/stepan-vana/spadlejablko" target="_blank"
+        <a class="github-link" href="https://github.com/stepan-vana/spadlejablko" target="_blank"
            style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
             <img src="../assets/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
             <span>GitHub</span>
@@ -227,10 +277,14 @@ body {
         <button id="themeToggle" style="padding: 6px 10px; cursor: pointer;">
             Dark mode
         </button>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Otevřít navigaci">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </div>
 
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
     <p><b>LINUX</b></p>
     <br>
 
@@ -374,6 +428,10 @@ btn.addEventListener("click", () => {
     } else {
         btn.innerText = "Dark mode";
     }
+});
+
+document.getElementById("hamburgerBtn").addEventListener("click", () => {
+    document.getElementById("sidebar").classList.toggle("open");
 });
 
 loadMD("../docs/linux/linux_intro.md");
