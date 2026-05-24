@@ -529,6 +529,12 @@ btn.addEventListener("click", () => {
           document.getElementById("themeIconImg").alt = "Dark mode";
         }
       }
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        applyTheme(!document.body.classList.contains("dark"));
+      });
+      document.getElementById("themeIconBtn").addEventListener("click", () => {
+        applyTheme(!document.body.classList.contains("dark"));
+      });
       loadMD("../docs/physics/introduction.md");
     </script>
   </body>
