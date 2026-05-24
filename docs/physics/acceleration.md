@@ -1,6 +1,6 @@
 # Acceleration
 
-Acceleration is a physical quantity describing how velocity changes over time. It is denoted by $ a $ and has the SI unit $ \mathrm{m/s^2} $ ($ \mathrm{m\,s^{-2}} $).  
+Acceleration is a vector physical quantity describing how velocity changes over time. It is denoted by $ a $ and has the SI unit $ \mathrm{m/s^2} $ ($ \mathrm{m\,s^{-2}} $).  
 **Important note:** Acceleration can also describe the change of **direction** of movement, more precisely acceleration describes the change of the **velocity vector**.
 
 > **Acceleration:**
@@ -47,5 +47,5 @@ Because free fall is a accelerated motion, we can use these equations. The gravi
 Lets change the $s$ for $h$ like height.
 
 $$
-h=\frac{1}{2}at^2=\frac{1}{2}gt^2\implies 2h=gt^2\implies t^2=\frac{2h}{g}\implies t=\sqrt{\frac{2h}{g}}=\sqrt{\frac{2\cdot 3}{10}}s \implies \underline{t=0,775\space s}
+h=\frac{1}{2}at^2=\frac{1}{2}gt^2\implies 2h=gt^2\newline t^2=\frac{2h}{g}\implies t=\sqrt{\frac{2h}{g}}=\sqrt{\frac{2\cdot 3}{10}}s \newline \underline{t=0,775\space s}
 $$
