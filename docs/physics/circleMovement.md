@@ -1,6 +1,6 @@
 # Circular motion
 
-If we are moving in straight line and want to move in circle, we need to accelerate in direction to the center of the circle. The acceleration has to aim to the circle at **every** point of the movement.
+If we are moving in straight line and want to move in circle, we need to accelerate in direction to the center of the circle. The acceleration has to aim to the circle at **every** point of the movement.  
 ![Circle](./../../assets/circle.png)
 
 ## Frequency and period
