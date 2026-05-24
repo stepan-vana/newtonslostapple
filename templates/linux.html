@@ -4,436 +4,399 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NLA | Linux</title>
-
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
 <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
-
 body {
-    font-family: Arial, sans-serif;
+font-family: Arial, sans-serif;
 }
-
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: white;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1.5rem;
-    z-index: 1000;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 60px;
+background: white;
+border-bottom: 1px solid #ccc;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 1.5rem;
+z-index: 1000;
 }
-
 .logo img {
-    height: 36px;
-    display: block;
+height: 36px;
+display: block;
 }
-
 .sidebar {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    bottom: 0;
-    width: 15rem;
-    padding: 25px;
-    background: #f4f4f4;
-    border: 1px solid #bbb;
-    border-top: none;
-    overflow: auto;
+position: fixed;
+top: 60px;
+left: 0;
+bottom: 0;
+width: 15rem;
+padding: 25px;
+background: #f4f4f4;
+border: 1px solid #bbb;
+border-top: none;
+overflow: auto;
 }
-
 .sidebar-left {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    width: 250px;
-    padding: 20px;
-    background: #f4f4f4;
-    border: 1px solid #bbb;
+position: fixed;
+top: 80px;
+right: 20px;
+width: 250px;
+padding: 20px;
+background: #f4f4f4;
+border: 1px solid #bbb;
 }
-
 .content {
-    margin-top: 70px;
-    margin-left: 15rem;
-    margin-right: 270px;
-    padding: 20px 30px;
+margin-top: 70px;
+margin-left: 15rem;
+margin-right: 270px;
+padding: 20px 30px;
 }
-
 .toc a {
-    display: block;
-    text-decoration: none;
-    color: black;
-    margin: 4px 0;
-    font-size: 14px;
+display: block;
+text-decoration: none;
+color: black;
+margin: 4px 0;
+font-size: 14px;
 }
-
 .toc .h1 { font-weight: bold; }
 .toc .h2 { margin-left: 10px; }
 .toc .h3 { margin-left: 20px; }
-
 .content table,
 .content th,
 .content td {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
+border: 1px solid #ccc;
+border-collapse: collapse;
 }
 .content h1 { margin-top: 10px; margin-bottom: 20px; }
 .content h2 { margin-top: 10px; margin-bottom: 10px; }
 .content p { margin-bottom: 10px; }
 .content hr { margin-top: 5px; }
 .content ul, .content ol {
-    padding-left: 24px;
+padding-left: 24px;
 }
-
 .content th,
 .content td {
-    padding: 8px;
+padding: 8px;
 }
-
 .content pre {
-    border: 1px solid #ccc;
-    margin: 10px 0;
-    display: inline-block;
-    max-width: 100%;
-    width: fit-content;
+border: 1px solid #ccc;
+margin: 10px 0;
+display: inline-block;
+max-width: 100%;
+width: fit-content;
 }
-
 .code-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding: 4px 8px;
-    font-size: 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #ccc;
+padding: 4px 8px;
+font-size: 12px;
 }
-
 .copy-btn {
-    font-size: 12px;
-    border: 1px solid #ccc;
-    background: white;
-    cursor: pointer;
-    padding: 2px 6px;
+font-size: 12px;
+border: 1px solid #ccc;
+background: white;
+cursor: pointer;
+padding: 2px 6px;
 }
-
 .dark .copy-btn {
-    background-color: #000;
-    color: #fff;
+background-color: #000;
+color: #fff;
 }
-
 .code-body {
-    padding: 10px;
-    background-color: #f8f8f8;
-    overflow-x: auto;
-    white-space: pre;
-    font-family: monospace;
-    display: inline-block;
+padding: 10px;
+background-color: #f8f8f8;
+overflow-x: auto;
+white-space: pre;
+font-family: monospace;
+display: inline-block;
 }
-
 .sidebar ul {
-    list-style: none;
+list-style: none;
 }
-
 .dropdown-toggle {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
+display: flex;
+align-items: center;
+cursor: pointer;
+user-select: none;
 }
-
 .icon {
-    width: 14px;
-    height: 14px;
-    transition: transform 0s ease;
-    display: inline-block;
-    color: black;
+width: 14px;
+height: 14px;
+transition: transform 0s ease;
+display: inline-block;
+color: black;
 }
-
 .dropdown.open .icon {
-    transform: rotate(90deg);
+transform: rotate(90deg);
 }
-
 .dropdown-menu {
-    display: none;
-    margin-left: 18px;
-    flex-direction: column;
+display: none;
+margin-left: 18px;
+flex-direction: column;
 }
-
 .dropdown.open .dropdown-menu {
-    display: flex;
+display: flex;
 }
-
 .dropdown-menu a {
-    display: block;
-    margin-bottom: 5px;
+display: block;
+margin-bottom: 5px;
 }
-
 .dark {
-    background: #000 !important;
-    color: #fff !important;
+background: #000 !important;
+color: #fff !important;
 }
-
 .dark .sidebar,
 .dark .sidebar-left,
 .dark .content {
-    background: #000 !important;
-    color: #fff !important;
+background: #000 !important;
+color: #fff !important;
 }
 .navbar a span {
-    color: black !important;
+color: black !important;
 }
 .dark a {
-    color: #fff !important;
+color: #fff !important;
 }
-
 .dark .code-body {
-    background-color: #000;
+background-color: #000;
 }
-
 .dark .icon {
-    color: #fff;
+color: #fff;
 }
 .navbar button {
-    border: 1px solid #ccc;
-    background-color: transparent;
+border: 1px solid #ccc;
+background-color: transparent;
 }
 .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 6px;
+display: none;
+flex-direction: column;
+justify-content: center;
+gap: 5px;
+width: 36px;
+height: 36px;
+background: transparent;
+border: 1px solid #ccc;
+border-radius: 4px;
+cursor: pointer;
+padding: 6px;
 }
 .hamburger span {
-    display: block;
-    height: 2px;
-    background: black;
-    border-radius: 2px;
+display: block;
+height: 2px;
+background: black;
+border-radius: 2px;
 }
 .dark .hamburger span { background: white; }
 
-@media (max-width: 1024px) {
-    .github-link { display: none; }
-    .sidebar-left { display: none; }
-    .content { margin-right: 0; }
+.theme-icon-btn {
+display: none;
+width: 36px;
+height: 36px;
+background: transparent;
+border: 1px solid #ccc;
+border-radius: 4px;
+cursor: pointer;
+padding: 5px;
+align-items: center;
+justify-content: center;
+}
+.theme-icon-btn img {
+width: 22px;
+height: 22px;
+display: block;
 }
 
+@media (max-width: 1024px) {
+.github-link { display: none; }
+.sidebar-left { display: none; }
+.content { margin-right: 0; }
+}
 @media (max-width: 768px) {
-    .github-link { display: none; }
-    .hamburger { display: flex; }
-
-    .sidebar {
-        left: auto;
-        right: 0;
-        width: min(15rem, 85vw);
-        border-left: 1px solid #bbb;
-        border-right: none;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+.github-link { display: none !important; }
+.hamburger { display: flex; }
+.sidebar {
+left: auto;
+right: 0;
+width: min(15rem, 85vw);
+border-left: 1px solid #bbb;
+border-right: none;
+transform: translateX(100%);
+transition: transform 0.3s ease;
     }
-    .sidebar.open { transform: translateX(0); }
-
-    .content {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 16px;
+.sidebar.open { transform: translateX(0); }
+.content {
+margin-left: 0;
+margin-right: 0;
+padding: 16px;
     }
+#themeToggle { display: none; }
+.theme-icon-btn { display: flex; }
 }
 </style>
 </head>
-
 <body>
-
 <div class="navbar">
-    <div class="logo">
-        <a href="https://newtonslostapple.com/index.html">
-            <img src="../assets/newtons_lost_apple.png" alt="logo">
-        </a>
-    </div>
-
-    <div style="display: flex; align-items: center; gap: 12px;">
-        <a class="github-link" href="https://github.com/stepan-vana/spadlejablko" target="_blank"
-           style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
-            <img src="../assets/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
-            <span>GitHub</span>
-        </a>
-
-        <button id="themeToggle" style="padding: 6px 10px; cursor: pointer;">
+<div class="logo">
+<a href="https://newtonslostapple.com/index.html">
+<img src="../assets/newtons_lost_apple.png" alt="logo">
+</a>
+</div>
+<div style="display: flex; align-items: center; gap: 12px;">
+<a class="github-link" href="https://github.com/stepan-vana/spadlejablko" target="_blank"
+style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+<img src="../assets/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
+<span>GitHub</span>
+</a>
+<button id="themeToggle" style="padding: 6px 10px; cursor: pointer;">
             Dark mode
-        </button>
-
-        <button class="hamburger" id="hamburgerBtn" aria-label="Otevřít navigaci">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
+</button>
+<button class="theme-icon-btn" id="themeIconBtn" aria-label="Přepnout téma">
+<img id="themeIconImg" src="../assets/moon.svg" alt="Dark mode">
+</button>
+<button class="hamburger" id="hamburgerBtn" aria-label="Otevřít navigaci">
+<span></span><span></span><span></span>
+</button>
 </div>
-
+</div>
 <div class="sidebar" id="sidebar">
-    <p><b>LINUX</b></p>
-    <br>
-
-    <ul>
-        <li class="dropdown">
-            <div class="dropdown-toggle" data-md="../docs/linux/linux_intro.md">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M8 5l8 7-8 7"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"/>
-                </svg>
-
+<p><b>LINUX</b></p>
+<br>
+<ul>
+<li class="dropdown">
+<div class="dropdown-toggle" data-md="../docs/linux/linux_intro.md">
+<svg class="icon" viewBox="0 0 24 24">
+<path d="M8 5l8 7-8 7"
+fill="none"
+stroke="currentColor"
+stroke-width="2"/>
+</svg>
                 Introduction
-            </div>
-
-            <div class="dropdown-menu">
-                <a href="#" data-md="../docs/linux/working_with_files.md">Working with Files</a>
-            </div> 
-            <div style="display:flex; flex-direction:column;">
-               <a href="#" data-md="../docs/linux/permissions.md">Permissions</a>
-            <a href="#" data-md="../docs/linux/network_traffic_analysis.md">Network Traffic Analysis</a>
-                </div>
-        </li>
-    </ul>
 </div>
-
+<div class="dropdown-menu">
+<a href="#" data-md="../docs/linux/working_with_files.md">Working with Files</a>
+</div> 
+<div style="display:flex; flex-direction:column;">
+<a href="#" data-md="../docs/linux/permissions.md">Permissions</a>
+<a href="#" data-md="../docs/linux/network_traffic_analysis.md">Network Traffic Analysis</a>
+</div>
+</li>
+</ul>
+</div>
 <div class="content" id="content"></div>
-
 <div class="sidebar-left">
-    <p><b>DOCUMENT SECTIONS</b></p>
-    <br>
-    <div class="toc" id="toc"></div>
+<p><b>DOCUMENT SECTIONS</b></p>
+<br>
+<div class="toc" id="toc"></div>
 </div>
-
 <script>
 function slugify(text) {
-    return text.toLowerCase()
+return text.toLowerCase()
         .replace(/[^\w\s-]/g, '')
         .replace(/\s+/g, '-');
 }
-
 function buildTOC(html) {
-    const temp = document.createElement("div");
-    temp.innerHTML = html;
-
-    const headers = temp.querySelectorAll("h1, h2, h3");
-
-    const toc = document.getElementById("toc");
-    toc.innerHTML = "";
-
-    headers.forEach(h => {
-        const id = slugify(h.innerText);
-        h.id = id;
-
-        const a = document.createElement("a");
-        a.href = "#" + id;
-        a.innerText = h.innerText;
-
-        if (h.tagName === "H1") a.classList.add("h1");
-        if (h.tagName === "H2") a.classList.add("h2");
-        if (h.tagName === "H3") a.classList.add("h3");
-
-        toc.appendChild(a);
+const temp = document.createElement("div");
+temp.innerHTML = html;
+const headers = temp.querySelectorAll("h1, h2, h3");
+const toc = document.getElementById("toc");
+toc.innerHTML = "";
+headers.forEach(h => {
+const id = slugify(h.innerText);
+h.id = id;
+const a = document.createElement("a");
+a.href = "#" + id;
+a.innerText = h.innerText;
+if (h.tagName === "H1") a.classList.add("h1");
+if (h.tagName === "H2") a.classList.add("h2");
+if (h.tagName === "H3") a.classList.add("h3");
+toc.appendChild(a);
     });
-
-    return temp.innerHTML;
+return temp.innerHTML;
 }
-
 function enhanceCodeBlocks() {
-    document.querySelectorAll(".content pre").forEach(pre => {
-        if (pre.dataset.done) return;
-        pre.dataset.done = "1";
-
-        const code = pre.querySelector("code");
-        if (!code) return;
-
-        const lang = (code.className || "").replace("language-", "") || "code";
-
-        const header = document.createElement("div");
-        header.className = "code-header";
-
-        const left = document.createElement("div");
-        left.innerText = lang;
-
-        const btn = document.createElement("button");
-        btn.className = "copy-btn";
-        btn.innerText = "copy";
-
-        btn.addEventListener("click", () => {
-            navigator.clipboard.writeText(code.innerText);
-            btn.innerText = "copied";
-            setTimeout(() => btn.innerText = "copy", 1000);
-        });
-
-        header.appendChild(left);
-        header.appendChild(btn);
-
-        const body = document.createElement("div");
-        body.className = "code-body";
-        body.innerText = code.innerText;
-
-        pre.innerHTML = "";
-        pre.appendChild(header);
-        pre.appendChild(body);
-    });
-}
-
-document.querySelectorAll(".dropdown-toggle").forEach(el => {
-    el.addEventListener("click", () => {
-        el.parentElement.classList.toggle("open");
-    });
-});
-
-async function loadMD(file) {
-    const res = await fetch(file);
-    const text = await res.text();
-
-    let html = marked.parse(text);
-    html = buildTOC(html);
-
-    document.getElementById("content").innerHTML = html;
-
-    enhanceCodeBlocks();
-}
-
-document.querySelectorAll("[data-md]").forEach(el => {
-    el.addEventListener("click", e => {
-        e.preventDefault();
-        loadMD(el.dataset.md);
-    });
-});
-
-const btn = document.getElementById("themeToggle");
-
+document.querySelectorAll(".content pre").forEach(pre => {
+if (pre.dataset.done) return;
+pre.dataset.done = "1";
+const code = pre.querySelector("code");
+if (!code) return;
+const lang = (code.className || "").replace("language-", "") || "code";
+const header = document.createElement("div");
+header.className = "code-header";
+const left = document.createElement("div");
+left.innerText = lang;
+const btn = document.createElement("button");
+btn.className = "copy-btn";
+btn.innerText = "copy";
 btn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+navigator.clipboard.writeText(code.innerText);
+btn.innerText = "copied";
+setTimeout(() => btn.innerText = "copy", 1000);
+        });
+header.appendChild(left);
+header.appendChild(btn);
+const body = document.createElement("div");
+body.className = "code-body";
+body.innerText = code.innerText;
+pre.innerHTML = "";
+pre.appendChild(header);
+pre.appendChild(body);
+    });
+}
+document.querySelectorAll(".dropdown-toggle").forEach(el => {
+el.addEventListener("click", () => {
+el.parentElement.classList.toggle("open");
+    });
+});
+async function loadMD(file) {
+const res = await fetch(file);
+const text = await res.text();
+let html = marked.parse(text);
+html = buildTOC(html);
+document.getElementById("content").innerHTML = html;
+enhanceCodeBlocks();
+}
+document.querySelectorAll("[data-md]").forEach(el => {
+el.addEventListener("click", e => {
+e.preventDefault();
+loadMD(el.dataset.md);
+    });
+});
 
-    if (document.body.classList.contains("dark")) {
-        btn.innerText = "Light mode";
+function applyTheme(dark) {
+if (dark) {
+document.body.classList.add("dark");
+document.getElementById("themeToggle").innerText = "Light mode";
+document.getElementById("themeIconImg").src = "../assets/sun.svg";
+document.getElementById("themeIconImg").alt = "Light mode";
     } else {
-        btn.innerText = "Dark mode";
+document.body.classList.remove("dark");
+document.getElementById("themeToggle").innerText = "Dark mode";
+document.getElementById("themeIconImg").src = "../assets/moon.svg";
+document.getElementById("themeIconImg").alt = "Dark mode";
     }
+}
+
+document.getElementById("themeToggle").addEventListener("click", () => {
+applyTheme(!document.body.classList.contains("dark"));
+});
+document.getElementById("themeIconBtn").addEventListener("click", () => {
+applyTheme(!document.body.classList.contains("dark"));
 });
 
 document.getElementById("hamburgerBtn").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.toggle("open");
+document.getElementById("sidebar").classList.toggle("open");
 });
-
 loadMD("../docs/linux/linux_intro.md");
 </script>
-
 </body>
 </html>
