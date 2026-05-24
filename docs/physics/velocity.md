@@ -1,4 +1,4 @@
-# Speed
+# Velocity
 
 Speed is a physical quantity denoted by $v$, with the SI base unit m/s ($ \mathrm{ms^{-1}} $).
 
