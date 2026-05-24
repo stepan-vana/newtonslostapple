@@ -3,18 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NLA | Linux</title>
+<title>NLA | Physics</title>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<!--
-Source - https://stackoverflow.com/q/53032574
-Posted by NiaBie, modified by community. See post 'Timeline' for change history
-Retrieved 2026-05-24, License - CC BY-SA 4.0
--->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.css" integrity="sha384-JwmmMju6Z7M9jiY4RXeJLoNb3aown2QCC/cI7JPgmOLsn3n33pdwAj0Ml/CMMd1W" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.js" integrity="sha384-atIluo+2Hixq8HCazSQWa1JjeC5L0CQeWAx74Q+EbqgAW4UixbrBQF4+1jvBX01b" crossorigin="anonymous"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    onload="window.katexReady = true;"></script>
 
 <style>
 * {
@@ -50,7 +45,6 @@ body {
 .sidebar {
     position: fixed;
     top: 60px;
-    left: 0;
     bottom: 0;
     width: 15rem;
     padding: 25px;
@@ -94,13 +88,6 @@ body {
 .content td {
     border: 1px solid #ccc;
     border-collapse: collapse;
-}
-.content h1 { margin-top: 10px; margin-bottom: 20px; }
-.content h2 { margin-top: 10px; margin-bottom: 10px; }
-.content p { margin-bottom: 10px; }
-.content hr { margin-top: 5px; }
-.content ul, .content ol {
-    padding-left: 24px;
 }
 
 .content th,
@@ -214,56 +201,6 @@ body {
     border: 1px solid #ccc;
     background-color: transparent;
 }
-
-/* ── Hamburger ── */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 6px;
-}
-.hamburger span {
-    display: block;
-    height: 2px;
-    background: black;
-    border-radius: 2px;
-}
-.dark .hamburger span { background: white; }
-
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-    .sidebar-left { display: none; }
-    .content { margin-right: 0; }
-}
-
-@media (max-width: 768px) {
-    .github-link { display: none; }
-    .hamburger { display: flex; }
-
-    .sidebar {
-        left: auto;
-        right: 0;
-        width: min(15rem, 85vw);
-        border-left: 1px solid #bbb;
-        border-right: none;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    }
-    .sidebar.open { transform: translateX(0); }
-
-    .content {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 16px;
-    }
-}
 </style>
 </head>
 
@@ -272,34 +209,30 @@ body {
 <div class="navbar">
     <div class="logo">
         <a href="https://newtonslostapple.com/index.html">
-            <img src="../assets/newtons_lost_apple.png" alt="logo">
+            <img src="../brand/newtons_lost_apple.png" alt="logo">
         </a>
     </div>
 
     <div style="display: flex; align-items: center; gap: 12px;">
-        <a class="github-link" href="https://github.com/stepan-vana/spadlejablko" target="_blank"
+        <a href="https://github.com/stepan-vana/spadlejablko" target="_blank"
            style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
-            <img src="../assets/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
+            <img src="../brand/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
             <span>GitHub</span>
         </a>
 
         <button id="themeToggle" style="padding: 6px 10px; cursor: pointer;">
             Dark mode
         </button>
-
-        <button class="hamburger" id="hamburgerBtn" aria-label="Otevřít navigaci">
-            <span></span><span></span><span></span>
-        </button>
     </div>
 </div>
 
-<div class="sidebar" id="sidebar">
-    <p><b>LINUX</b></p>
+<div class="sidebar">
+    <p><b>Physics</b></p>
     <br>
 
     <ul>
         <li class="dropdown">
-            <div class="dropdown-toggle" data-md="../docs/linux/linux_intro.md">
+            <div class="dropdown-toggle" data-md="./docs/physics/introduction.md">
                 <svg class="icon" viewBox="0 0 24 24">
                     <path d="M8 5l8 7-8 7"
                           fill="none"
@@ -311,10 +244,10 @@ body {
             </div>
 
             <div class="dropdown-menu">
-                <a href="#" data-md="../docs/physics/kinematics-intro.md">Intro</a>
-                <a href="#" data-md="../docs/physics/velocity.md">Velocity</a>
-                <a href="#" data-md="../docs/physics/acceleration.md">Acceleration</a>
-            </div> 
+                <a href="#" data-md="./docs/physics/kinematics-intro.md.md">Introduction</a>
+                <a href="#" data-md="./docs/physics/velocity.md">Velocity</a>
+                <a href="#" data-md="./docs/physics/acceleration.md">Acceleration</a>
+            </div>
         </li>
     </ul>
 </div>
@@ -400,6 +333,20 @@ function enhanceCodeBlocks() {
     });
 }
 
+function renderKaTeX() {
+    if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById("content"), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$",  right: "$",  display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            throwOnError: false
+        });
+    }
+}
+
 document.querySelectorAll(".dropdown-toggle").forEach(el => {
     el.addEventListener("click", () => {
         el.parentElement.classList.toggle("open");
@@ -416,6 +363,7 @@ async function loadMD(file) {
     document.getElementById("content").innerHTML = html;
 
     enhanceCodeBlocks();
+    renderKaTeX();
 }
 
 document.querySelectorAll("[data-md]").forEach(el => {
@@ -437,11 +385,7 @@ btn.addEventListener("click", () => {
     }
 });
 
-document.getElementById("hamburgerBtn").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.toggle("open");
-});
-
-loadMD("../docs/linux/linux_intro.md");
+loadMD("resources/math.md");
 </script>
 
 </body>
