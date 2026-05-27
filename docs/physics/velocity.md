@@ -1,6 +1,6 @@
 # Velocity
 
-Velocity is a vector physical quantity denoted by $v$, with the SI base unit m/s ($ \mathrm{ms^{-1}} $).
+Velocity is a physical vector quantity denoted by $v$, with the SI base unit m/s ($ \mathrm{ms^{-1}} $).
 
 It describes how much the distance changes, or more precisely, what distance a body travels over a given time.  
 

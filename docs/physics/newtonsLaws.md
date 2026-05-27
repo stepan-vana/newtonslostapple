@@ -9,7 +9,7 @@ says, that if there isn't any force influencing the body, then it's staying stil
 says, that everyting, that is accelerating, there is a force involved. The equation is:
 
 $$
-\boxed{F=ma}
+\boxed{\vec{F}=m\vec{a}}
 $$
 
 ## 3. Newton's law

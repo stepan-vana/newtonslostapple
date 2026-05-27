@@ -6,7 +6,7 @@ Acceleration is a vector physical quantity describing how velocity changes over 
 > **Acceleration:**
 >
 > $$
-> \boxed{a = \frac{v}{t}}
+> \boxed{\vec{a} = \frac{\vec{v}}{t}}
 > $$
 
 To calculate the displacement in uniformly accelerated motion (i.e. $ a = \mathrm{const.} $), the formula $ s = vt $ cannot be used. Instead, we use the equation below.

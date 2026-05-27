@@ -35,7 +35,7 @@ $$
 **Centripetal acceleration** is the acceleration, that curves the trajectory into a circle. We can calculate in like this:
 
 $$
-\boxed{a=\frac{v^2}{r}=\omega^2r}
+\boxed{a=\frac{\vec{v}^2}{r}=\omega^2r}
 $$
 
 ## Centripetal force
