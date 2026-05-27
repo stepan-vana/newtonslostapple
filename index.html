@@ -1,119 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newton's Lost Apple</title>
-<style>
-  * { box-sizing: border-box; }
-  table { border-collapse: collapse; width: 100%; }
-  th, td { border: 1px solid #000; padding: 6px 10px; }
-  th { background-color: #000; color: #fff; text-align: start; white-space: nowrap; }
-  body { margin: 0; font-family: Arial, sans-serif; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newton's Lost Apple</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 6px 10px;
+      }
+      th {
+        background-color: #000;
+        color: #fff;
+        text-align: start;
+        white-space: nowrap;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
 
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 2rem;
-    border-bottom: 1px solid #ccc;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  nav img { height: 36px; width: auto; }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 2rem;
+        border-bottom: 1px solid #ccc;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      nav img {
+        height: 36px;
+        width: auto;
+      }
 
-  .content {
-    width: 100%;
-    max-width: 900px;
-    margin: 24px auto;
-    padding: 0 1.5rem;
-  }
+      .content {
+        width: 100%;
+        max-width: 900px;
+        margin: 24px auto;
+        padding: 0 1.5rem;
+      }
 
-  h2 { margin-bottom: 8px; font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+      h2 {
+        margin-bottom: 8px;
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      }
 
-  .table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+      .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
 
-  table { min-width: 480px; }
+      table {
+        min-width: 480px;
+      }
 
-  td, th { font-size: clamp(0.78rem, 2vw, 0.95rem); }
+      td,
+      th {
+        font-size: clamp(0.78rem, 2vw, 0.95rem);
+      }
 
-  .footer-note { margin-top: 1%; margin-bottom: 0; font-size: clamp(0.78rem, 2vw, 0.9rem); }
-  .footer-links { margin: 0; font-size: clamp(0.75rem, 2vw, 0.875rem); }
+      .footer-note {
+        margin-top: 1%;
+        margin-bottom: 0;
+        font-size: clamp(0.78rem, 2vw, 0.9rem);
+      }
+      .footer-links {
+        margin: 0;
+        font-size: clamp(0.75rem, 2vw, 0.875rem);
+      }
 
-  @media (max-width: 600px) {
-    nav { padding: 10px 1rem; }
-    nav img { height: 28px; }
-    .content { padding: 0 1rem; margin: 16px auto; }
-    th, td { padding: 5px 7px; }
-  }
+      @media (max-width: 600px) {
+        nav {
+          padding: 10px 1rem;
+        }
+        nav img {
+          height: 28px;
+        }
+        .content {
+          padding: 0 1rem;
+          margin: 16px auto;
+        }
+        th,
+        td {
+          padding: 5px 7px;
+        }
+      }
 
-  @media (min-width: 768px) {
-    nav { padding: 12px 4rem; }
-  }
+      @media (min-width: 768px) {
+        nav {
+          padding: 12px 4rem;
+        }
+      }
 
-  @media (min-width: 1024px) {
-    nav { padding: 12px 10rem; }
-    .content { width: fit-content; }
-  }
-</style>
-</head>
-<body>
-<nav>
-  <img src="assets/newtons_lost_apple.png"/>
-  <a href="https://github.com/stepan-vana/spadlejablko" target="_blank"
-     style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
-    <img src="assets/github.svg" alt="GitHub" style="height: 28px; width: auto;" />
-    <span>GitHub</span>
-  </a>
-</nav>
-<div class="content">
-  <h2>Materials Overview</h2>
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>DOCUMENT ID</th>
-          <th>DOCUMENT NAME</th>
-          <th>CREATED</th>
-          <th>LAST UPDATED</th>
-          <th>VERSION</th>
-          <th>STATUS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a>LX2605</a></td>
-          <td><a href="templates/linux.html">Linux</a></td>
-          <td>2026-05-18</td>
-          <td>2026-05-24</td>
-          <td>v1.1.3</td>
-        </tr>
-        <tr>
-          <td><a>CS2605</a></td>
-          <td><a>Cybersecurity</a></td>
-          <td>2026-05-21</td>
-          <td>2026-05-21</td>
-          <td>N/A</td>
-          <td>In Queue</td>
-        </tr>
-        <tr>
-          <td><a>PS2605</a></td>
-          <td><a href="./templates/physics.html">Physics</a></td>
-          <td>2026-05-21</td>
-          <td>2026-05-24</td>
-          <td>v1.0.1</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="footer-note"><b>[!]</b> Don't forget to READ THE TERMS OF USE before exploring this website.</p>
-  <div>
-    <p class="footer-links"><a href="templates/terms_of_use.html">Terms of Use</a> | © 2026 newtonslostapple.com. All rights reserved.</p>
-  </div>
-</div>
-</body>
+      @media (min-width: 1024px) {
+        nav {
+          padding: 12px 10rem;
+        }
+        .content {
+          width: fit-content;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img src="assets/newtons_lost_apple.png" />
+      <a
+        href="https://github.com/stepan-vana/spadlejablko"
+        target="_blank"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+          color: inherit;
+        "
+      >
+        <img
+          src="assets/github.svg"
+          alt="GitHub"
+          style="height: 28px; width: auto"
+        />
+        <span>GitHub</span>
+      </a>
+    </nav>
+    <div class="content">
+      <h2>Materials Overview</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>DOCUMENT ID</th>
+              <th>DOCUMENT NAME</th>
+              <th>CREATED</th>
+              <th>LAST UPDATED</th>
+              <th>VERSION</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a>LX2605</a></td>
+              <td><a href="templates/linux.html">Linux</a></td>
+              <td>2026-05-18</td>
+              <td>2026-05-24</td>
+              <td>v1.1.3</td>
+            </tr>
+            <tr>
+              <td><a>CS2605</a></td>
+              <td><a>Cybersecurity</a></td>
+              <td>2026-05-21</td>
+              <td>2026-05-21</td>
+              <td>N/A</td>
+              <td>In Queue</td>
+            </tr>
+            <tr>
+              <td><a>PS2605</a></td>
+              <td><a href="./templates/physics.html">Physics</a></td>
+              <td>2026-05-21</td>
+              <td>2026-05-24</td>
+              <td>v1.0.1</td>
+            </tr>
+            <tr>
+              <td><a>CH2605</a></td>
+              <td><a>Chemistry</a></td>
+              <td>2026-05-27</td>
+              <td>2026-05-27</td>
+              <td>In Queue</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footer-note">
+        <b>[!]</b> Don't forget to READ THE TERMS OF USE before exploring this
+        website.
+      </p>
+      <div>
+        <p class="footer-links">
+          <a href="templates/terms_of_use.html">Terms of Use</a> | © 2026
+          newtonslostapple.com. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
