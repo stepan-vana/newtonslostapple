@@ -57,6 +57,11 @@
         border-top: none;
         overflow: auto;
       }
+      .sidebat ul li {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
       .sidebar-left {
         position: fixed;
         top: 80px;
@@ -350,80 +355,8 @@
       <br />
       <ul>
         <li class="dropdown">
-          <a href="#" data-md="../docs/chemistry/intro.md">Intro</a>
+          <a href="#" data-md="../docs/chemistry/intrduction.md">Intro</a>
           <a href="#" data-md="../docs/chemistry/mixtures.md">Mixtures</a>
-          <!--
-          <div
-            class="dropdown-toggle"
-            data-md="../docs/physics/kinematics-intro.md"
-          >
-            <svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M8 5l8 7-8 7"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-
-            Kinematics
-          </div>
-
-          <div class="dropdown-menu">
-            <a href="#" data-md="../docs/physics/vectors.md">Vectors</a>
-            <a href="#" data-md="../docs/physics/velocity.md">Velocity</a>
-            <a href="#" data-md="../docs/physics/acceleration.md"
-              >Acceleration</a
-            >
-            <a href="#" data-md="../docs/physics/circleMovement.md"
-              >Circular motion</a
-            >
-            <a href="#" data-md="../docs/physics/newtonsLaws.md"
-              >Newton's laws</a
-            >
-          </div>
-          <div
-            class="dropdown-toggle"
-            data-md="../docs/physics/kinematics-intro.md"
-          >
-            <svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M8 5l8 7-8 7"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-
-            Dynamics
-          </div>
-          <div class="dropdown-menu">
-            <a href="#" data-md="../docs/physics/newtonsLaws.md"
-              >Newton's laws</a
-            >
-            <a href="#" data-md="../docs/physics/momentum.md">Momentum</a>
-            <a href="#" data-md="../docs/physics/friction.md">Friction</a>
-          </div>
-          <div
-            class="dropdown-toggle"
-            data-md="../docs/physics/kinematics-intro.md"
-          >
-            <svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M8 5l8 7-8 7"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-
-            Energy
-          </div>
-          <div class="dropdown-menu">
-            <a href="#" data-md="../docs/physics/work.md"
-              >Mechanical work</a
-            >
-          </div>-->
         </li>
       </ul>
     </div>
@@ -555,7 +488,7 @@
         document.getElementById("sidebar").classList.toggle("open");
       });
 
-      loadMD("../docs/chemistry/intro.md");
+      loadMD("../docs/chemistry/introduction.md");
     </script>
   </body>
 </html>
