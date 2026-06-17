@@ -1,0 +1,300 @@
+[
+  {
+    "path": "docs/linux/network_traffic_analysis.md",
+    "anchor": "",
+    "title": "Network Traffic Analysis",
+    "subtitle": "",
+    "content": "In this exercise, we will explore the use of tcpdump, a tool for capturing, displaying, and saving packets traveling across a network. It is widely used for troubleshooting network issues and diagnosing communication between devices."
+  },
+  {
+    "path": "docs/linux/network_traffic_analysis.md",
+    "anchor": "basic-usage",
+    "title": "Network Traffic Analysis",
+    "subtitle": "Basic Usage",
+    "content": "tcpdump options expression"
+  },
+  {
+    "path": "docs/linux/network_traffic_analysis.md",
+    "anchor": "options",
+    "title": "Network Traffic Analysis",
+    "subtitle": "Options",
+    "content": "-i network interface to capture traffic eth0 wlan0 or any -s size set maximum capture size -w save captured traffic to a file -n do not resolve hostnames to IP addresses -nn do not resolve hostnames or port names -c stop after capturing packets -A display packet contents in ASCII format -X hexadecimal format -vv verbose information"
+  },
+  {
+    "path": "docs/linux/network_traffic_analysis.md",
+    "anchor": "expressions",
+    "title": "Network Traffic Analysis",
+    "subtitle": "Expressions",
+    "content": "expression filter condition host port src dst tcp udp icmp ip ether net network Logical Operators AND or NOT Grouping Examples Capture TCP packets on port 22 tcp and port 22 tcp and port 22 or port 80"
+  },
+  {
+    "path": "docs/linux/network_traffic_analysis.md",
+    "anchor": "usage-examples",
+    "title": "Network Traffic Analysis",
+    "subtitle": "Usage Examples",
+    "content": "Save all traffic to a file full packet size tcpdump -i any -s 0 -w traffic.pcap Download the file via sftp get traffic.pcap scp rsync Display HTTP traffic on all interfaces"
+  },
+  {
+    "path": "docs/linux/permissions.md",
+    "anchor": "",
+    "title": "Permissions – read, write, execute",
+    "subtitle": "",
+    "content": "To prevent anyone in Linux from doing anything they want, permissions exist. These determine who can view a file or folder, who can edit it, and who can execute it. Permissions can be simply divided into 3 attributes: rwx, meaning read, write, and execute."
+  },
+  {
+    "path": "docs/linux/permissions.md",
+    "anchor": "permissions-on-a-file-vs-a-directory",
+    "title": "Permissions",
+    "subtitle": "Permissions on a File vs. a Directory",
+    "content": "Detailed explanation of the different behavior of permissions on directories and files: read file reading, directory reading and filenames. write file writing, directory creating files. execute file executing, directory entering."
+  },
+  {
+    "path": "docs/linux/permissions.md",
+    "anchor": "permissions-for-owner-group-and-others",
+    "title": "Permissions",
+    "subtitle": "Permissions for Owner, Group, and Others",
+    "content": "Every file and directory has three permission levels. The owner, the group, and others can each have different permissions for the same object. Others refers to users who are neither the owner nor members of the group. As a result, we have 9 permission attributes in total."
+  },
+  {
+    "path": "docs/linux/permissions.md",
+    "anchor": "chmod",
+    "title": "Permissions",
+    "subtitle": "chmod",
+    "content": "Now that we know how numeric permissions work, we can easily change file and directory permissions using this notation. For example, if we want to change the permissions of the file hello.txt to 640, we can do it like this: chmod 640 hello.txt"
+  },
+  {
+    "path": "docs/linux/permissions.md",
+    "anchor": "chown",
+    "title": "Permissions",
+    "subtitle": "chown",
+    "content": "Changing the owner is even simpler with the chown command change owner in the format chown user filename sudo chown user hello.txt. Changing the owner of a file requires sudo privileges."
+  },
+  {
+    "path": "docs/linux/permissions.md",
+    "anchor": "chgrp",
+    "title": "Permissions",
+    "subtitle": "chgrp",
+    "content": "If we want to change the group, we use the chgrp command change group in the format chgrp group filename sudo chgrp group hello.txt. Changing the group of a file requires sudo privileges."
+  },
+  {
+    "path": "docs/linux/working_with_files.md",
+    "anchor": "",
+    "title": "Working with Files",
+    "subtitle": "",
+    "content": "An expansion of terminal basics – overview of useful commands."
+  },
+  {
+    "path": "docs/linux/working_with_files.md",
+    "anchor": "stat--file-information",
+    "title": "Working with Files",
+    "subtitle": "stat – file information",
+    "content": "Displays detailed information about a file or directory. Similar to ls -la, but the output can be formatted. stat file detailed info stat -c %a file permissions in numeric form 755."
+  },
+  {
+    "path": "docs/linux/working_with_files.md",
+    "anchor": "find--searching-for-files",
+    "title": "Working with Files",
+    "subtitle": "find – searching for files",
+    "content": "Used to search for files and directories based on various criteria. find -name fileA search by filename find -type d -name x search for directories find -perm 755 search by permissions find -name .md extension. The asterisk represents any number of characters globbing."
+  },
+  {
+    "path": "docs/linux/working_with_files.md",
+    "anchor": "grep--searching-text",
+    "title": "Working with Files",
+    "subtitle": "grep – searching text",
+    "content": "Short for global regular expression print. Used for searching strings inside text. Reading directly from a file grep hello fileA. Reading from stdin via pipe cat fileA grep hello. Overview of standard streams stdin 0, stdout 1, stderr 2."
+  },
+  {
+    "path": "docs/linux/working_with_files.md",
+    "anchor": "strings--readable-text-from-binary-files",
+    "title": "Working with Files",
+    "subtitle": "strings – readable text from binary files",
+    "content": "Similar to cat, but prints only printable characters letters, numbers, symbols. Useful for extracting strings from executable files. strings programA."
+  },
+  {
+    "path": "docs/physics/velocity.md",
+    "anchor": "",
+    "title": "Velocity",
+    "subtitle": "",
+    "content": "In classical mechanics velocity is a vector physical quantity that quantifies the rate of change of an objects position with respect to a frame of reference over time. It is conventionally denoted by the symbol v. Within the International System of Units SI its base derived unit is the meter per second m s."
+  },
+  {
+    "path": "docs/physics/velocity.md",
+    "anchor": "modalities-of-velocity",
+    "title": "Velocity",
+    "subtitle": "Modalities of Velocity",
+    "content": "Kinematic analysis distinguishes between two primary classifications of velocity: Average Velocity defined as the total displacement or distance traveled divided by the total elapsed time interval. Instantaneous Velocity defined as the limit of the average velocity as the time interval approaches zero representing the first derivative of position with respect to time."
+  },
+  {
+    "path": "docs/physics/velocity.md",
+    "anchor": "fundamental-kinematic-formulations",
+    "title": "Velocity",
+    "subtitle": "Fundamental Kinematic Formulations",
+    "content": "For uniform linear motion where velocity remains constant algebraic relations determine distance, time, and speed formulas."
+  },
+  {
+    "path": "docs/physics/velocity.md",
+    "anchor": "practical-analytical-scenarios",
+    "title": "Velocity",
+    "subtitle": "Practical Analytical Scenarios",
+    "content": "Scenario A Calculation of Average Velocity. Scenario B Calculation of Temporal Duration. Scenario C Calculation of Linear Displacement."
+  },
+  {
+    "path": "docs/physics/acceleration.md",
+    "anchor": "fundamental-definition-of-acceleration",
+    "title": "Acceleration",
+    "subtitle": "Fundamental Definition of Acceleration",
+    "content": "In classical mechanics acceleration is defined as a vector physical quantity that quantifies the rate of change of the velocity vector with respect to time. It is conventionally denoted by the symbol a. Within the International System of Units SI its derived unit is the meter per second squared m s2. Acceleration occurs when either the magnitude speed or the direction of the velocity vector changes."
+  },
+  {
+    "path": "docs/physics/acceleration.md",
+    "anchor": "uniformly-accelerated-linear-motion",
+    "title": "Acceleration",
+    "subtitle": "Uniformly Accelerated Linear Motion",
+    "content": "When a body undergoes motion with a constant acceleration the standard linear equation for uniform motion is mathematically invalid. To determine the spatial displacement we must account for the continuously changing velocity."
+  },
+  {
+    "path": "docs/physics/acceleration.md",
+    "anchor": "kinematics-of-free-fall",
+    "title": "Acceleration",
+    "subtitle": "Kinematics of Free Fall",
+    "content": "Free fall represents a specific case of uniformly accelerated linear motion occurring within a gravitational field operating under the assumption of zero aerodynamic drag vacuum conditions. The acceleration is dictated by the local gravitational acceleration constant denoted as g approximated as 9.81 m s2."
+  },
+  {
+    "path": "docs/physics/circle_movement.md",
+    "anchor": "kinematics-of-circular-trajectories",
+    "title": "Circular Movement",
+    "subtitle": "Kinematics of Circular Trajectories",
+    "content": "When an object transitions from a linear trajectory into a circular path it must experience a continuous acceleration directed orthogonally to its velocity vector pointing directly toward the geometric center of the circular trajectory."
+  },
+  {
+    "path": "docs/physics/circle_movement.md",
+    "anchor": "temporal-characteristics-period-and-frequency",
+    "title": "Circular Movement",
+    "subtitle": "Temporal Characteristics: Period and Frequency",
+    "content": "To quantify periodic rotational motion two interdependent scalar quantities are defined: Period T the time required for a body to complete one full revolution. Frequency f the number of complete revolutions executed per second."
+  },
+  {
+    "path": "docs/physics/circle_movement.md",
+    "anchor": "angular-velocity",
+    "title": "Circular Movement",
+    "subtitle": "Angular Velocity",
+    "content": "Angular velocity omega measures the rate of change of the angular displacement the angle derived from either the frequency or the period of rotation."
+  },
+  {
+    "path": "docs/physics/circle_movement.md",
+    "anchor": "linear-tangential-velocity",
+    "title": "Circular Movement",
+    "subtitle": "Linear (Tangential) Velocity",
+    "content": "The linear velocity v of a body moving in a circle represents its instantaneous speed tangent to the circular path. It is directly proportional to both the angular velocity and the radius r of the trajectory."
+  },
+  {
+    "path": "docs/physics/circle_movement.md",
+    "anchor": "centripetal-acceleration",
+    "title": "Circular Movement",
+    "subtitle": "Centripetal Acceleration",
+    "content": "Centripetal acceleration ac is the vector quantity responsible exclusively for altering the directional component of the velocity vector thereby curving the trajectory into a circular arc without modifying the objects tangential speed. Formulation: ac equals v squared divided by r."
+  },
+  {
+    "path": "docs/physics/circle_movement.md",
+    "anchor": "centripetal-force-and-dynamics",
+    "title": "Circular Movement",
+    "subtitle": "Centripetal Force and Dynamics",
+    "content": "According to Newtons Second Law of Motion any net acceleration acting upon a mass implies the presence of a net external force acting in the same direction. The force required to continuously deflect the body into a circle is defined as the centripetal force Fc."
+  },
+  {
+    "path": "docs/physics/friction.md",
+    "anchor": "",
+    "title": "Friction",
+    "subtitle": "",
+    "content": "Friction is a dissipative contact force that opposes the relative lateral motion or the tendency toward such motion of two surfaces in contact. It converts mechanical kinetic energy into thermal energy. Friction is broadly categorized based on the nature of the contact interface and the type of motion involved."
+  },
+  {
+    "path": "docs/physics/friction.md",
+    "anchor": "dry-friction-sliding-friction",
+    "title": "Friction",
+    "subtitle": "Dry Friction (Sliding Friction)",
+    "content": "Dry friction occurs when two solid surfaces in contact move or attempt to move relative to one another without the presence of a fluid lubricant. The maximum magnitude of dry friction is directly proportional to the normal force acting perpendicular to the contact interface: Ff equals mu multiplied by FN."
+  },
+  {
+    "path": "docs/physics/friction.md",
+    "anchor": "rolling-resistance",
+    "title": "Friction",
+    "subtitle": "Rolling Resistance",
+    "content": "Rolling resistance occurs when a spherical or cylindrical object rolls over a surface. It is primarily caused by the non elastic deformation of the rolling object the supporting surface or both at the point of contact. Rolling resistance is typically orders of magnitude smaller than dry sliding friction."
+  },
+  {
+    "path": "docs/physics/kinetic_energy.md",
+    "anchor": "kinetic-energy-ek",
+    "title": "Kinetic Energy",
+    "subtitle": "Kinetic Energy (Ek)",
+    "content": "Kinetic energy is the energy that an object possesses due to its motion. It is defined as the total mechanical work required to accelerate a body of a given mass from rest to its stated velocity. Formula: Ek equals one half m v squared. The SI derived unit is the joule J."
+  },
+  {
+    "path": "docs/physics/kinetic_energy.md",
+    "anchor": "physical-interpretation-of-the-variables",
+    "title": "Kinetic Energy",
+    "subtitle": "Physical Interpretation of the Variables",
+    "content": "The formulation reveals that kinetic energy depends linearly on mass, but quadratically on velocity. Influence of mass and influence of velocity explanations."
+  },
+  {
+    "path": "docs/physics/kinetic_energy.md",
+    "anchor": "the-influence-of-velocity-quadratic-dependence",
+    "title": "Kinetic Energy",
+    "subtitle": "The Influence of Velocity (Quadratic Dependence)",
+    "content": "Because velocity is squared doubling the speed of an object does not double its kinetic energy it quadruples it. Tripling the speed increases the kinetic energy by a factor of nine. This non linear scaling is a critical safety factor in automotive braking distance calculations."
+  },
+  {
+    "path": "docs/physics/momentum.md",
+    "anchor": "linear-momentum-p",
+    "title": "Momentum",
+    "subtitle": "Linear Momentum (p)",
+    "content": "In classical mechanics linear momentum is a fundamental vector physical quantity that quantifies the quantity of motion of a moving body. Operational measure of how difficult it is to bring a moving object to a complete halt. Mathematical formulation: p equals m multiplied by v vector."
+  },
+  {
+    "path": "docs/physics/momentum.md",
+    "anchor": "law-of-conservation-of-momentum",
+    "title": "Momentum",
+    "subtitle": "Law of Conservation of Momentum",
+    "content": "The Law of Conservation of Momentum dictates that within an isolated closed system a system completely free from external forces the total vector momentum remains invariant over time regardless of any internal interactions collisions or explosions."
+  },
+  {
+    "path": "docs/physics/newtons_laws.md",
+    "anchor": "newtons-first-law-of-motion-law-of-inertia",
+    "title": "Newton's Laws",
+    "subtitle": "Newton's First Law of Motion (Law of Inertia)",
+    "content": "Newton's First Law states that a body will remain at rest or continue to move at a constant velocity in a straight line unless acted upon by a net external force. This property of matter to resist changes to its state of motion is known as inertia."
+  },
+  {
+    "path": "docs/physics/newtons_laws.md",
+    "anchor": "newtons-second-law-of-motion-fundamental-law-of-dynamics",
+    "title": "Newton's Laws",
+    "subtitle": "Newton's Second Law of Motion",
+    "content": "Newton's Second Law quantifies the effect of a net external force on a body's motion. It states that the acceleration of an object is directly proportional to the net force and inversely proportional to its mass. Formulated as F equals m multiplied by a vector."
+  },
+  {
+    "path": "docs/physics/newtons_laws.md",
+    "anchor": "newtons-third-law-of-motion-law-of-action-and-reaction",
+    "title": "Newton's Laws",
+    "subtitle": "Newton's Third Law of Motion (Law of Action and Reaction)",
+    "content": "Forces always occur in matched pairs. When one body exerts a force on a second body the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body. For every action there is an equal and opposite reaction."
+  },
+  [
+  {
+    "path": "docs/git/git.md",
+    "anchor": "the-three-states",
+    "title": "Git Overview",
+    "subtitle": "The Three States",
+    "description": "Git stores data as a series of snapshots. Every file in a Git repository exists in one of three states: Modified (Working Directory - file has been changed but not yet staged), Staged (Staging Area / Index - file is marked to go into the next commit), and Committed (Repository / .git/ - data is safely stored in the local database).",
+    "content": "Every file in a Git repository exists in one of three states: Modified, Staged, or Committed. This architecture determines how changes flow from your workspace to history."
+  },
+  {
+    "path": "docs/git/github.md",
+    "anchor": "core-concepts",
+    "title": "GitHub Overview",
+    "subtitle": "Core Concepts",
+    "description": "GitHub acts as the central hub for collaboration. Core concepts include: Repository (remote container for project, files, history, issues, PRs), Fork (personal copy of another repository), Pull Request (PR - request to merge changes, facilitates code review), Issue (tracks bugs, enhancements), and Action (automated CI/CD workflow defined in YAML).",
+    "content": "Every project on GitHub utilizes a few foundational components to facilitate teamwork and automation: Repository, Fork, Pull Request, Issue, and Action."
+  }
+  ]
+]

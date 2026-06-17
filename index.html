@@ -1,0 +1,110 @@
+<!--
+  Armadillo v1.0.0 (2026-06-16)
+  Copyright (c) 2026 Stepan Vana
+  Licensed under the MIT License.
+  Full license text available at: https://github.com/stepan-vana/armadillo/blob/main/LICENSE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newton's Lost Apple</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-light-theme" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/script.js" defer></script>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="">
+      <img src="assets/logo/nla_logo.svg" alt="logo" />
+    </a>
+    <div class="nav-center">
+      <!--
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <i class="ti ti-search search-icon"></i>
+          <input
+            type="text"
+            id="docsSearchInput"
+            placeholder="Start searching..."
+            autocomplete="off"
+            maxlength="100"
+          />
+        </div>
+        <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+      </div>-->
+    </div>
+    <div class="nav-actions">
+      <button class="navbar-button" onclick="window.open('https://github.com/stepan-vana/newtonslostapple', '_blank')">
+        <img class="github-icon" src="assets/icons/github.svg" alt="" height="14" />
+         Join Us on GitHub
+        <i class="ti ti-arrow-up-right"></i>
+      </button>
+      <button class="hamburger" id="hamburgerBtn">
+        <img src="assets/icons/list.svg" alt="menu" />
+      </button>
+    </div>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li class="sidebar-item">
+        <a href="">Home</a>
+      </li>
+    </ul>
+
+    <p>You may be interested in</p>
+     <ul>
+    <li class="sidebar-item">
+      <a href="" data-md="docs/git/git.md" target="_blank">
+        Git Overview  <i class="ti ti-trending-up"></i> 
+      </a>
+      <a href="" data-md="docs/git/github.md" target="_blank">
+        GitHub Overview  <i class="ti ti-trending-up"></i> 
+      </a>
+      <a href="" data-md="docs/linux/network_traffic_analysis.md" target="_blank">
+        Network Traffic Anylysis  <i class="ti ti-trending-up"></i> 
+      </a>
+        <a href="" data-md="docs/physics/newtons_laws.md" target="_blank">
+        Newton's Laws  <i class="ti ti-trending-up"></i> 
+      </a>
+    </li>
+  </ul>
+
+    <div class="sidebar-actions">
+      <button class="navbar-button" onclick="window.open('https://github.com/stepan-vana/newtonslostapple', '_blank')">
+        <img class="github-icon" src="assets/icons/github.svg" alt="" height="14" />
+        Join Us on GitHub
+        <i class="ti ti-arrow-up-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="content" id="content"></div>
+
+  <div class="sidebar-left">
+    <div class="toc-wrapper">
+      <div class="toc-track"></div>
+      <div class="toc-indicator" id="tocIndicator"></div>
+      <div class="toc" id="toc"></div>
+    </div>
+  </div>
+
+</body>
+</html>
