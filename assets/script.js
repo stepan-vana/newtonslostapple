@@ -281,6 +281,23 @@ function parseMetaSyntax(html, rawMarkdown) {
         btn.innerHTML = `<i class="ti ti-markdown" aria-hidden="true"></i>${val.trim()}`;
         return btn.outerHTML;
     });
+    const calloutIcons = {
+        note: "ti-info-circle",
+        tip: "ti-bulb",
+        warning: "ti-alert-triangle",
+        danger: "ti-flame"
+    };
+    html = html.replace(/\{?\[(note|tip|warning|danger)\]([^}]+)\}?/g, (_, type, val) => {
+        const div = document.createElement("div");
+        div.className = `callout callout-${type}`;
+        const icon = document.createElement("i");
+        icon.className = `ti ${calloutIcons[type]} callout-icon`;
+        const text = document.createElement("div");
+        text.innerHTML = val.trim();
+        div.appendChild(icon);
+        div.appendChild(text);
+        return div.outerHTML;
+    });
     const results = [];
     let i = 0;
     while (i < html.length) {
@@ -601,10 +618,22 @@ async function initApp() {
         ALLOWED_DOCS = await response.json();
         
         await initSearchIndex();
-        loadMD("docs/home.md");
+
+        const md = new URLSearchParams(window.location.search).get("md");
+        if (md) {
+            loadMD(md);
+        } else {
+            loadMD("docs/home.md");
+        }
     } catch (error) {
         console.error("Initialization failed:", error);
     }
+}
+
+const searchShortcutEl = document.getElementById("searchShortcut");
+if (searchShortcutEl) {
+    const isMac = navigator.platform.toUpperCase().includes('MAC');
+    searchShortcutEl.textContent = isMac ? "⌘+K" : "Ctrl+K";
 }
 
 initApp();

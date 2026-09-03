@@ -1,110 +1,328 @@
-<!--
-  Armadillo v1.0.0 (2026-06-16)
-  Copyright (c) 2026 Stepan Vana
-  Licensed under the MIT License.
-  Full license text available at: https://github.com/stepan-vana/armadillo/blob/main/LICENSE
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Newton's Lost Apple</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Newton's Lost Apple</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/icons/nla_non_txt.svg">
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-light-theme" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-light-theme" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-  <link rel="stylesheet" href="assets/styles.css" />
-  <script src="assets/script.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="assets/script.js" defer></script>
+
+<style>
+.sidebar-tree, .folder-content {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sidebar-folder {
+  position: relative;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--sidebar-a, #111);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease;
+}
+
+.folder-header:hover {
+  background: var(--sidebar-hover, #f5f5f5);
+}
+
+.folder-icon {
+  font-size: 16px;
+  color: var(--text-light, #999);
+  width: 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+.folder-content {
+  display: none !important;
+  padding-left: 20px !important;
+  position: relative;
+  margin-top: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+.sidebar-folder.open > .folder-content {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0;
+}
+
+.folder-content a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 15px;
+  color: var(--text-muted, #333);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.folder-content a:hover {
+  background: var(--sidebar-hover, rgba(0, 0, 0, 0.05));
+  color: var(--text, #000);
+}
+
+.file-icon {
+  font-size: 15px;
+  color: var(--text-light, #666);
+}
+</style>
 </head>
 <body>
 
-  <nav>
+<nav>
+  <div class="nav-top">
     <a class="nav-logo" href="">
       <img src="assets/logo/nla_logo.svg" alt="logo" />
     </a>
-    <div class="nav-center">
-      <!--
-      <div class="search-container">
-        <div class="search-input-wrapper">
-          <i class="ti ti-search search-icon"></i>
-          <input
-            type="text"
-            id="docsSearchInput"
-            placeholder="Start searching..."
-            autocomplete="off"
-            maxlength="100"
-          />
-        </div>
-        <div id="searchResultsDropdown" class="search-results-dropdown"></div>
-      </div>-->
-    </div>
+    <div class="nav-center"></div>
     <div class="nav-actions">
       <button class="navbar-button" onclick="window.open('https://github.com/stepan-vana/newtonslostapple', '_blank')">
         <img class="github-icon" src="assets/icons/github.svg" alt="" height="14" />
-         Join Us on GitHub
-        <i class="ti ti-arrow-up-right"></i>
+        Edit on GitHub
       </button>
       <button class="hamburger" id="hamburgerBtn">
         <img src="assets/icons/list.svg" alt="menu" />
       </button>
     </div>
-  </nav>
+  </div>
 
-  <div class="sidebar" id="sidebar">
-    <ul>
-      <li class="sidebar-item">
-        <a href="">Home</a>
-      </li>
-    </ul>
+  <div class="nav-bottom">
+    <a href="#" class="nav-item-link" data-md="docs/changelog.md">
+        <i class="ti ti-git-branch"></i>
+      <span>Changelog</span>
+    </a>
+    <a href="#" class="nav-item-link" data-md="docs/news.md">
+      <i class="ti ti-news"></i>
+      <span>News</span>
+    </a>
+    <a href="#" class="nav-item-link" data-md="docs/help.md">
+      <i class="ti ti-help"></i>
+      <span>Help & Support</span>
+    </a>
+    <a href="#" class="nav-item-link" data-md="docs/licence.md">
+      <i class="ti ti-copyright"></i>
+      <span>Licence</span>
+    </a>
+  </div>
+</nav>
 
-    <p>You may be interested in</p>
-     <ul>
+<div class="sidebar" id="sidebar">
+  <ul>
     <li class="sidebar-item">
-      <a href="" data-md="docs/git/git.md" target="_blank">
-        Git Overview  <i class="ti ti-trending-up"></i> 
-      </a>
-      <a href="" data-md="docs/git/github.md" target="_blank">
-        GitHub Overview  <i class="ti ti-trending-up"></i> 
-      </a>
-      <a href="" data-md="docs/linux/network_traffic_analysis.md" target="_blank">
-        Network Traffic Anylysis  <i class="ti ti-trending-up"></i> 
-      </a>
-        <a href="" data-md="docs/physics/newtons_laws.md" target="_blank">
-        Newton's Laws  <i class="ti ti-trending-up"></i> 
-      </a>
+      <a href="#" data-md="docs/home.md">Home</a>
     </li>
   </ul>
 
-    <div class="sidebar-actions">
-      <button class="navbar-button" onclick="window.open('https://github.com/stepan-vana/newtonslostapple', '_blank')">
-        <img class="github-icon" src="assets/icons/github.svg" alt="" height="14" />
-        Join Us on GitHub
-        <i class="ti ti-arrow-up-right"></i>
-      </button>
-    </div>
+  <p>Topics</p>
+  <ul class="sidebar-tree">
+    <li class="sidebar-folder">
+      <div class="folder-header">
+        <i class="ti ti-folder folder-icon"></i>
+        <span>Git</span>
+      </div>
+      <ul class="folder-content">
+        <li>
+          <a href="#" data-md="docs/git/git.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Git Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/git/github.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>GitHub Overview</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="sidebar-folder">
+      <div class="folder-header">
+        <i class="ti ti-folder folder-icon"></i>
+        <span>Linux</span>
+      </div>
+      <ul class="folder-content">
+        <li>
+          <a href="#" data-md="docs/linux/network_traffic_analysis.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Network Traffic Analysis</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/linux/permissions.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Permissions</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/linux/working_with_files.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Working with Files</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="sidebar-folder">
+      <div class="folder-header">
+        <i class="ti ti-folder folder-icon"></i>
+        <span>Physics</span>
+      </div>
+      <ul class="folder-content">
+        <li>
+          <a href="#" data-md="docs/physics/acceleration.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Acceleration</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/circle_movement.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Circle Movement</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/friction.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Friction</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/kinetic_energy.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Kinetic Energy</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/momentum.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Momentum</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/newtons_laws.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Newton's Laws</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/vectors.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Vectors</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-md="docs/physics/velocity.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>Velocity</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+      <li class="sidebar-folder">
+      <div class="folder-header">
+        <i class="ti ti-folder folder-icon"></i>
+        <span>Markdown</span>
+      </div>
+      <ul class="folder-content">
+    <li>
+          <a href="#" data-md="docs/physics/acceleration.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>None</span>
+          </a>
+        </li>
+        </ul>
+        <li class="sidebar-folder">
+      <div class="folder-header">
+        <i class="ti ti-folder folder-icon"></i>
+        <span>Python</span>
+      </div>
+      <ul class="folder-content">
+        <li>
+          <a href="#" data-md="docs/physics/acceleration.md">
+            <i class="ti ti-file file-icon"></i>
+            <span>None</span>
+          </a>
+        </li>
+            </ul>
+  </ul>
+
+  <div class="sidebar-actions">
+    <button class="navbar-button" onclick="window.open('https://github.com/stepan-vana/newtonslostapple', '_blank')">
+      <img class="github-icon" src="assets/icons/github.svg" alt="" height="14" />
+      Edit on GitHub
+      <i class="ti ti-arrow-up-right"></i>
+    </button>
   </div>
+</div>
 
-  <div class="content" id="content"></div>
+<div class="content" id="content"></div>
 
-  <div class="sidebar-left">
-    <div class="toc-wrapper">
-      <div class="toc-track"></div>
-      <div class="toc-indicator" id="tocIndicator"></div>
-      <div class="toc" id="toc"></div>
-    </div>
+<div class="sidebar-left">
+  <div class="toc-wrapper">
+    <div class="toc-track"></div>
+    <div class="toc-indicator" id="tocIndicator"></div>
+    <div class="toc" id="toc"></div>
   </div>
+</div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const folderHeaders = document.querySelectorAll('.folder-header');
+  folderHeaders.forEach(header => {
+    header.addEventListener('click', (e) => {
+      e.preventDefault();
+      const folder = header.closest('.sidebar-folder');
+      const icon = header.querySelector('.folder-icon');
+      folder.classList.toggle('open');
+
+      if (folder.classList.contains('open')) {
+        icon.classList.remove('ti-folder');
+        icon.classList.add('ti-folder-open');
+      } else {
+        icon.classList.remove('ti-folder-open');
+        icon.classList.add('ti-folder');
+      }
+    });
+  });
+
+  const navTabs = document.querySelectorAll('.nav-bottom .nav-item-link');
+  navTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      navTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+});
+</script>
 </body>
 </html>
